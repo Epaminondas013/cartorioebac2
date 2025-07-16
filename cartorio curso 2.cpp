@@ -88,9 +88,28 @@ int consulta()
 
 int deletar()
 {
-	printf("Voce escolheu deletar nomes!\n");
-	system("pause");
+	char cpf[40];
+	
+	printf("Digite o do usuário CPF a ser deletado!\n");
+	scanf("%s",cpf);
+	
+	remove(cpf);
+	
+	FILE *file;
+	file = fopen(cpf,"r");
+	
+	if(file == NULL)
+	{
+		printf("O usuário não esta no sistema!.\n");
+		system("pause");
+	}
+	
+
 }
+
+
+
+
 
 	int main()
 {	
@@ -109,7 +128,8 @@ int deletar()
 		printf("\t1 - Registrar nomes\n");
 		printf("\t2 - consultar nomes\n");
 		printf("\t3 - deletar nomes\n");
-		printf("opção:  \n\n");
+	    printf("opção:  \n\n");
+		
 	
 		scanf("%d", &opcao);
 	
